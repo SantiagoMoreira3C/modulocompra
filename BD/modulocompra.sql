@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-02-2021 a las 03:34:18
+-- Tiempo de generación: 01-03-2021 a las 14:48:46
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -20,6 +20,50 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `modulocompra`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compra`
+--
+
+CREATE TABLE `compra` (
+  `comprareferencia` int(11) NOT NULL,
+  `compranombre` varchar(100) NOT NULL,
+  `compraproveedor` varchar(100) NOT NULL,
+  `compraproducto` varchar(100) NOT NULL,
+  `compracantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `compra`
+--
+
+INSERT INTO `compra` (`comprareferencia`, `compranombre`, `compraproveedor`, `compraproducto`, `compracantidad`) VALUES
+(1, 'Alejandro Vicente Palma ', 'Pronaca SA', 'Pollo ', 3),
+(2, 'Noel Quijije', 'Coca Cola Company', 'Coca Cola', 5),
+(3, 'Mayra Alvia', 'Juris SA', 'Jamón', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `producto`
+--
+
+CREATE TABLE `producto` (
+  `productoreferencia` int(11) NOT NULL,
+  `productonombre` varchar(100) NOT NULL,
+  `productocantidad` int(11) NOT NULL,
+  `productodescripcion` varchar(100) NOT NULL,
+  `productomarca` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`productoreferencia`, `productonombre`, `productocantidad`, `productodescripcion`, `productomarca`) VALUES
+(1, 'Coca cola', 2, 'De la compañia 1', 'Company SA');
 
 -- --------------------------------------------------------
 
@@ -46,7 +90,7 @@ CREATE TABLE `proveedor` (
 INSERT INTO `proveedor` (`proveedorreferencia`, `proveedornombre`, `proveedorruc`, `proveedorprovincia`, `proveedorciudad`, `proveedordireccion`, `proveedortelefono`, `proveedorcorreo`, `proveedorweb`) VALUES
 ('1', 'Pronaca SA', '20221', 'Manabi', 'Manta', 'Ave 4 de noviembre', '23412121', 'pronaca@gmail.com', 'cocacola3.web'),
 ('2', 'Juris SA', '20221', 'Manabi', 'Manta', 'Ave 4 de noviembre', '25613212', 'juris@gmail.com', 'cocacola3.web'),
-('3', 'Coca  Cola Company', '20221', 'Manabi', 'Manta', 'Ave 4 de noviembre', '1989463940', 'cocacola@gmail.com', 'cocacola3.web');
+('3', 'Juris SAB', '20221', 'Manabi', 'Manta', 'Ave 4 de noviembre', '25613212', 'juris@gmail.com', 'cocacola3.web');
 
 -- --------------------------------------------------------
 
@@ -72,6 +116,18 @@ INSERT INTO `usuario` (`id`, `usuario`, `contraseña`, `rol`) VALUES
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `compra`
+--
+ALTER TABLE `compra`
+  ADD PRIMARY KEY (`comprareferencia`);
+
+--
+-- Indices de la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD PRIMARY KEY (`productoreferencia`);
 
 --
 -- Indices de la tabla `proveedor`
